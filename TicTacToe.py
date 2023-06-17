@@ -4,6 +4,7 @@ class Square :
 
         self . Value = 0
 
+
 class Board :
 
     def __init__ ( self , size = 3 ) :
@@ -14,6 +15,7 @@ class Board :
             for y in range ( size ) 
             ]
         
+
     def Move ( self , PlayerTurn , Move ) :
 
         PlacedOnSquare : Square = self . Board [ Move [ 1 ] ] [ Move [ 0 ] ]
@@ -28,6 +30,7 @@ class Board :
 
             return ( False )
 
+
     def Display ( self ) :
 
         print ( ' ' +  '_' * ( len ( self . Board ) * 2 - 1 ) )
@@ -40,7 +43,9 @@ class Board :
 
                 Value = self . Board [ y ] [ x ] . Value
 
-                print ( str ( Value ) , end = '' )
+                Text = [ ' ' , 'O' , 'X' ] [ Value ]
+
+                print ( Text , end = '' )
 
                 if not x == len ( self . Board [ y ] ) - 1 :
 
@@ -49,6 +54,12 @@ class Board :
             print ( '|' )
 
         print ( ' ' +  '‾' * ( len ( self . Board ) * 2 - 1 ) )
+
+
+    def Game ( ) :
+
+        pass
+
 
 b = Board ( )
 b . Display ( )
