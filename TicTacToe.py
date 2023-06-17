@@ -15,14 +15,42 @@ class Board :
             for y in range ( size ) 
             ]
         
+        Won = False
+
+        while not Won :
+
+            for Player in [ 1 , -1 ] :
+
+                self . Display ( )
+
+                MoveWorked = False
+
+                while not MoveWorked :
+
+                    Move = input ( )
+
+                    Move = Move . replace ( ' ' , '' )
+
+                    Move = [ int ( Move [ 0 ] ) , int ( Move [ 1 ] ) ]
+
+                    MoveWorked = self . Move ( Player , Move )
+        
 
     def Move ( self , PlayerTurn , Move ) :
+
+        for xy in range ( 2 ) :
+        
+            if Move [ xy ] >= len ( self . Board ) or Move [ xy ] < 0 :
+
+                return ( False )
 
         PlacedOnSquare : Square = self . Board [ Move [ 1 ] ] [ Move [ 0 ] ]
 
         if PlacedOnSquare . Value == 0 :
 
             PlacedOnSquare . Value = PlayerTurn
+
+            print ( PlacedOnSquare . Value )
 
             return ( True )
         
@@ -55,11 +83,4 @@ class Board :
 
         print ( ' ' +  '‾' * ( len ( self . Board ) * 2 - 1 ) )
 
-
-    def Game ( ) :
-
-        pass
-
-
 b = Board ( )
-b . Display ( )
