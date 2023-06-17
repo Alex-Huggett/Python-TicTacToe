@@ -10,13 +10,13 @@ class Board :
 
         self . Board : list [ list [ Square ] ] = [ 
             [ Square ( ) 
-            for y in range ( size ) ] 
-            for x in range ( size ) 
+            for x in range ( size ) ] 
+            for y in range ( size ) 
             ]
         
     def Move ( self , PlayerTurn , Move ) :
 
-        PlacedOnSquare : Square = self . Board [ Move [ 0 ] ] [ Move [ 1 ] ]
+        PlacedOnSquare : Square = self . Board [ Move [ 1 ] ] [ Move [ 0 ] ]
 
         if PlacedOnSquare . Value == 0 :
 
@@ -30,6 +30,25 @@ class Board :
 
     def Display ( self ) :
 
-        for x in range ( len ( self . Board ) ) :
+        print ( ' ' +  '_' * ( len ( self . Board ) * 2 - 1 ) )
 
-            pass
+        for y in range ( len ( self . Board ) ) :
+
+            print ( '|' , end = '' )
+
+            for x in range ( len ( self . Board [ y ] ) ) :
+
+                Value = self . Board [ y ] [ x ] . Value
+
+                print ( str ( Value ) , end = '' )
+
+                if not x == len ( self . Board [ y ] ) - 1 :
+
+                    print ( end = ' ' )
+
+            print ( '|' )
+
+        print ( ' ' +  '‾' * ( len ( self . Board ) * 2 - 1 ) )
+
+b = Board ( )
+b . Display ( )
