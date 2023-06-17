@@ -50,8 +50,6 @@ class Board :
 
             PlacedOnSquare . Value = PlayerTurn
 
-            print ( PlacedOnSquare . Value )
-
             return ( True )
         
         else :
